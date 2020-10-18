@@ -3,10 +3,19 @@ package edu.ncsu.csc316.movie.manager;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
 
+import edu.ncsu.csc316.dsa.list.List;
+import edu.ncsu.csc316.movie.data.WatchRecord;
+
 public class ReportManager {
 
+	// TODO: Questions: How do we access the methods of the classes contained in JAR files?
+	
+	/** */
 	private MovieManager manager;
+	/** */
 	private static final String INDENT = "   ";
+	/** */
+	private WatchRecord record;
 
 	/**
 	 * Creates a new ReportManager for generating reports for the MovieManager software
@@ -18,6 +27,7 @@ public class ReportManager {
 	 */
 	public ReportManager(String pathToMovieFile, String pathToWatchFile) throws FileNotFoundException, ParseException {
 		// TODO: complete this constructor
+		manager = new MovieManager(pathToMovieFile, pathToWatchFile);
 	}
 
 	/**
@@ -27,9 +37,9 @@ public class ReportManager {
 	 * @param numberOfMovies the number of movies to include in the report
 	 * @return a report of the most frequently watched movies
 	 */
-	public String getTopMoviesReport(int numberOfMovies) {
-		// TODO: complete this method
-	}
+//	public String getTopMoviesReport(int numberOfMovies) {
+//		// TODO: complete this method
+//	}
 
 	/**
 	 * Returns a report of movies below a specific watch percentage threshold.
@@ -37,9 +47,9 @@ public class ReportManager {
 	 * @param threshold the percentage threshold (as a whole number)
 	 * @return a report of movies below a specific watch percentage threshold
 	 */
-	public String getMovieCompletionReport(int threshold) {
-		// TODO: complete this method
-	}
+//	public String getMovieCompletionReport(int threshold) {
+//		// TODO: complete this method
+//	}
 
 	/**
 	 * Return a report of dates on which a specific movie was watched
@@ -49,5 +59,11 @@ public class ReportManager {
 	 */
 	public String getWatchDates(String title) {
 		// TODO: complete this method
+		List<WatchRecord> freqList = manager.getWatchFrequency(title);
+		String dates = INDENT;
+		for (WatchRecord w : freqList) {
+			dates = w.getDate().toString() + "\n" + INDENT;
+		}
+		return dates;
 	}
 }
