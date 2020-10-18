@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.text.ParseException;
 
 import edu.ncsu.csc316.dsa.list.List;
+import edu.ncsu.csc316.movie.data.Movie;
 import edu.ncsu.csc316.movie.data.WatchRecord;
 
 public class ReportManager {
@@ -37,9 +38,15 @@ public class ReportManager {
 	 * @param numberOfMovies the number of movies to include in the report
 	 * @return a report of the most frequently watched movies
 	 */
-//	public String getTopMoviesReport(int numberOfMovies) {
-//		// TODO: complete this method
-//	}
+	public String getTopMoviesReport(int numberOfMovies) {
+		// TODO: complete this method
+		List<Movie> movies = manager.getMostFrequentlyWatchedMovies(numberOfMovies);
+		String films = "";
+		for (Movie m : movies) {
+			films += INDENT + m.getTitle() + "\n";
+		}
+		return films;
+	}
 
 	/**
 	 * Returns a report of movies below a specific watch percentage threshold.
@@ -60,9 +67,9 @@ public class ReportManager {
 	public String getWatchDates(String title) {
 		// TODO: complete this method
 		List<WatchRecord> freqList = manager.getWatchFrequency(title);
-		String dates = INDENT;
+		String dates = "";
 		for (WatchRecord w : freqList) {
-			dates = w.getDate().toString() + "\n" + INDENT;
+			dates += INDENT + w.getDate().toString() + "\n";
 		}
 		return dates;
 	}

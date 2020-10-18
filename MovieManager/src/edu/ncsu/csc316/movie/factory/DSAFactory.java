@@ -55,7 +55,7 @@ public class DSAFactory {
 	 */
 	public static <E> List<E> getIndexedList() {
 		// use singly linked list as default list data structure
-		return getSinglyLinkedList();
+		return getArrayBasedList();
 	}
 
 	/**

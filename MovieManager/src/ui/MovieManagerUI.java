@@ -93,7 +93,10 @@ public class MovieManagerUI {
 		
 		// if the input watch history file does not contain any movies, then indicate
 		// "no movies have been streamed"
-
+		String report = reportManager.getTopMoviesReport(numFilms);
+		System.out.println("The " + numFilms + " most frequently watched movies [");
+		System.out.print(report);
+		System.out.println("]");
 	}
 	
 	/**
@@ -143,7 +146,7 @@ public class MovieManagerUI {
 		// No watch history for “(title)”.
 		String report = reportManager.getWatchDates(title);
 		System.out.println("The movie " + title + " was streamed on [");
-		System.out.println(report);
+		System.out.print(report);
 		System.out.println("]");
 	}
 

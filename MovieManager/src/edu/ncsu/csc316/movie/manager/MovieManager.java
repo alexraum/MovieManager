@@ -14,13 +14,9 @@ import edu.ncsu.csc316.movie.io.InputFileReader;
 public class MovieManager {
 
 	/** */
-	//private InputFileReader reader;
-	/** */
 	private List<WatchRecord> historyFile;;
 	/** */
 	private List<Movie> movieFile;
-	/** */
-	//private DSAFactory factory;
 
 	/**
 	 * Creates a MovieManager instance for handling utility functions
@@ -71,7 +67,7 @@ public class MovieManager {
 		// keep in mind that compareTo doesn't return -1 or 1
 		List<WatchRecord> newList = DSAFactory.getIndexedList();
 		for (int i = 0; i < records.length; i++) {
-			newList.addLast(records[i].getElement());
+			newList.addLast(records[i].getRecord());
 		}
 		return newList;
 	}
@@ -85,9 +81,43 @@ public class MovieManager {
 	 * @return a list of movie records that contains the top n most frequently
 	 *         watched movies
 	 */
-//	public List<Movie> getMostFrequentlyWatchedMovies(int numberOfMovies) {
-
-//	}
+	public List<Movie> getMostFrequentlyWatchedMovies(int numberOfMovies) {
+		// determine how many times each movie was watched
+		List<Integer> freqs = DSAFactory.getIndexedList();
+		int unique = 0;
+		for (Movie m : movieFile) {
+			int count = 0;
+			for (WatchRecord w : historyFile) {
+				if ((w.getMovieId().equals(m.getId())) && (count == 0)) {
+					unique++;
+				}
+				if (w.getMovieId().equals(m.getId())) {
+					count++;
+				}
+			}
+			freqs.addLast((Integer)count);
+		}
+		// If the user enters a number greater than the number of unique 
+		// movies in the watch history file, then the report will contain
+		// all of the unique movies contained in the watch history file.
+		if (numberOfMovies > unique) {
+			numberOfMovies = unique;
+		} 
+		// turn the list into an array
+		FrequentMovie[] movies = new FrequentMovie[freqs.size()];
+		for (int i = 0; i < freqs.size(); i++) {
+			movies[i] = new FrequentMovie(freqs.get(i), movieFile.get(i));
+		}
+		// sort the array
+		Sorter<FrequentMovie> sorter = DSAFactory.getComparisonSorter();
+		sorter.sort(movies);
+		// convert the array back into a list
+		List<Movie> newList = DSAFactory.getIndexedList();
+		for (int i = 0; i < numberOfMovies; i++) {
+			newList.addLast(movies[i].getMovie());
+		}
+		return newList;
+	}
 
 	/**
 	 * Return a list of movie records that have been watched less than a specific
@@ -107,20 +137,59 @@ public class MovieManager {
 	// manually define the compareTo method based on what they want us to sort by
 	
 	// hold a key and value as fields inside inner class
-//	private class FrequentMovie implements Comparable<Movie> {
-//		
-//		
-//		// TODO: Do we need multiple comparators? (one for each use case?)
-//	    //		 How can we use an inner class that deals with maps if some of
-//		// 		 our methods use lists instead of maps? 
-//		public int compareTo(Movie m) {
-//			// TODO Auto-generated method stub
-//			
-//			return 0;
-//		}
-//		
-//	}
-//	
+	private class FrequentMovie implements Comparable<FrequentMovie> {
+		
+		private Integer frequency;
+		private Movie movie;
+		
+		public FrequentMovie(Integer frequency, Movie movie) {
+			setFrequency(frequency);
+			setMovie(movie);
+		}
+		
+		public Integer getFrequency() {
+			return this.frequency;
+		}
+		
+		public Movie getMovie() {
+			return this.movie;
+		}
+		
+		public void setFrequency(Integer frequency) {
+			this.frequency = frequency;
+		}
+		
+		public void setMovie(Movie movie) {
+			this.movie = movie;
+		}
+		
+		// TODO: Do we need multiple comparators? (one for each use case?)
+	    //		 How can we use an inner class that deals with maps if some of
+		// 		 our methods use lists instead of maps? 
+		public int compareTo(FrequentMovie f) {
+			int freqCompare = frequency.compareTo(f.getFrequency());
+			// TODO: may need to change from compareToIgnoreCase to compareTo
+			int titleCompare = movie.getTitle().compareToIgnoreCase(f.getMovie().getTitle());
+			int idCompare = movie.getId().compareToIgnoreCase(f.getMovie().getId());
+			
+			if (freqCompare < 0) {
+				return 1;
+			} else if (freqCompare > 0) {
+				return -1;
+			} else if (titleCompare > 0) {
+				return 1;
+			} else if (titleCompare < 0) {
+				return -1;
+			} else if (idCompare > 0) {
+				return 1;
+			} else if (idCompare < 0) {
+				return -1;
+			} else {
+				return 0;
+			}
+		}	
+	}
+	
 //	private class UnfinishedMovie implements Comparable<Movie> {
 //		
 //		
@@ -137,33 +206,33 @@ public class MovieManager {
 	
 	private class WatchHistory implements Comparable<WatchHistory> {
 		
-		private WatchRecord element;
+		private WatchRecord record;
 		
-		public WatchHistory(WatchRecord element) {
-			setElement(element);
+		public WatchHistory(WatchRecord record) {
+			setRecord(record);
 		}
 		
-		public WatchRecord getElement() {
-			return this.element;
+		public WatchRecord getRecord() {
+			return this.record;
 		}
 		
-		public void setElement(WatchRecord element) {
-			this.element = element;
+		public void setRecord(WatchRecord record) {
+			this.record = record;
 		}
 		
 		// TODO: Do we need multiple comparators? (one for each use case?)
 	    //		 How can we use an inner class that deals with maps if some of
 		// 		 our methods use lists instead of maps? 
 		public int compareTo(WatchHistory w) {
-			int dateCompare = element.getDate().compareTo(w.getElement().getDate()); 
+			int dateCompare = record.getDate().compareTo(w.getRecord().getDate()); 
 			
 			if (dateCompare < 0) {
 				return 1;
 			} else if (dateCompare > 0) {
 				return -1;
-			} else if (element.getWatchTime() < w.getElement().getWatchTime()) {
+			} else if (record.getWatchTime() < w.getRecord().getWatchTime()) {
 				return 1;
-			} else if (element.getWatchTime() > w.getElement().getWatchTime()) {
+			} else if (record.getWatchTime() > w.getRecord().getWatchTime()) {
 				return -1;
 			} else {
 				return 0;
