@@ -72,7 +72,7 @@ public class ReportManager {
 	 * @return a report of dates on which a specific movie was watched
 	 */
 	public String getWatchDates(String title) {
-		List<WatchRecord> freqList = manager.getWatchFrequency(title);
+		List<WatchRecord> freqList = manager.getWatchHistory(title);
 		String dates = "";
 		for (WatchRecord w : freqList) {
 			dates += INDENT + w.getDate().toString() + "\n";
