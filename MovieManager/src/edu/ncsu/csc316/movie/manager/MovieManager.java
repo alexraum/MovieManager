@@ -48,6 +48,7 @@ public class MovieManager {
 	 * @return a list of watch records associated with the requested movie title
 	 */
 	public List<WatchRecord> getWatchHistory(String title) {
+		// create a new list
 		List<WatchRecord> freqList = DSAFactory.getIndexedList();
 		String id = "";
 		for (int i = 0; i < movieFile.size(); i++) {
