@@ -4,23 +4,33 @@ import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.util.Scanner;
 
-import edu.ncsu.csc316.dsa.list.List;
-import edu.ncsu.csc316.movie.data.WatchRecord;
-import edu.ncsu.csc316.movie.manager.MovieManager;
+//import edu.ncsu.csc316.dsa.list.List;
+//import edu.ncsu.csc316.movie.data.WatchRecord;
+//import edu.ncsu.csc316.movie.manager.MovieManager;
 import edu.ncsu.csc316.movie.manager.ReportManager;
 //import edu.ncsu.csc316.movie.manager.ReportManager;
 
+/**
+ * Provides a user interface and a main method to enter 
+ * the MovieManager program with.
+ * 
+ * @author Alex Raum
+ */
 public class MovieManagerUI {
 
-	private static MovieManager movieManager;
+	//private static MovieManager movieManager;
+	/** A ReportManager object */
 	private static ReportManager reportManager;
 	
+	/**
+	 * The main method of the program
+	 * 
+	 * @param args unused
+	 */
 	public static void main(String[] args) {
 		
 		// create a stream for user input
 		Scanner in = new Scanner(System.in);
-		
-		// TODO: put this inside of an infinite loop
 		
 		// request files from the user and store filenames 
 		boolean flag = true;
@@ -32,7 +42,7 @@ public class MovieManagerUI {
 			String watchFile = in.next();
 		
 			try {
-				movieManager = new MovieManager(movieFile, watchFile);
+				//movieManager = new MovieManager(movieFile, watchFile);
 				reportManager = new ReportManager(movieFile, watchFile);
 				flag = false;
 			} catch (FileNotFoundException | ParseException e) {
@@ -49,8 +59,6 @@ public class MovieManagerUI {
 		
 		// store their choice
 		int choice = in.nextInt();
-		// close the scanner
-		//in.close();
 		
 		// call the appropriate routine based on the users choice
 		if (choice == 1) {
@@ -62,9 +70,12 @@ public class MovieManagerUI {
 		} else if (choice == 4) {
 			System.exit(1);
 		} else {
-			// enter has not entered a valid option
+			// user has not entered a valid option
+			System.out.println("Invalid choice. Please select a valid option.");
 		}
- 		
+		
+		// close the scanner
+		in.close();
 	}
 	
 	/**
@@ -81,7 +92,7 @@ public class MovieManagerUI {
 		
 		// if numFilms <= 0, user is prompted to enter a number > 0
 		if (numFilms <= 0) {
-			while ( numFilms <= 0) {
+			while (numFilms <= 0) {
 				System.out.println("Please enter a number > 0: ");
 				numFilms = in2.nextInt();
 			}
@@ -97,6 +108,9 @@ public class MovieManagerUI {
 		System.out.println("The " + numFilms + " most frequently watched movies [");
 		System.out.print(report);
 		System.out.println("]");
+		
+		// close the scanner
+		in2.close();
 	}
 	
 	/**
@@ -114,16 +128,31 @@ public class MovieManagerUI {
 		// if the user enters a percentage threshold <= 0 or > 100, prompt user to "Please
 		// enter a percentage completion between 1 and 100."
 		if (num <= 0 || num > 100) {
-			System.out.println("Please enter a percentage completion between 1 and 100.");
-		}
+			while (num <= 0 || num > 100) {
+				System.out.println("Please enter a percentage completion between 1 and 100.");
+				num = in3.nextDouble();
+			}
+		}		
+		// cast to an integer
 		int percentComp = (int)num;
 		
 		// if no movies have a percent completion below the given threshold, indicate "No movies
 		// are less than percentComp percent completed."
+		String report = reportManager.getMovieCompletionReport(percentComp);
+		if (report.equals("")) {
+			System.out.println("No movies are less than " + percentComp + "% completed.");
+		} else {
+			System.out.println("The movies that have been watched less than " + percentComp + "% [");
+			System.out.print(report);
+			System.out.println("]");	
+		}	
+		
+		// close the scanner
+		in3.close();
 	}
 	
 	/**
-	 * 
+	 * Helper method used to generate report of the films watch history
 	 */
 	public static void viewWatchHistory() {
 		// create a stream for user input
@@ -148,6 +177,8 @@ public class MovieManagerUI {
 		System.out.println("The movie " + title + " was streamed on [");
 		System.out.print(report);
 		System.out.println("]");
+		
+		// close the scanner
+		in4.close();
 	}
-
 }

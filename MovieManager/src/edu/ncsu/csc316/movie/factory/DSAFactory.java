@@ -3,23 +3,23 @@ package edu.ncsu.csc316.movie.factory;
 import edu.ncsu.csc316.dsa.data.Identifiable;
 import edu.ncsu.csc316.dsa.list.ArrayBasedList;
 import edu.ncsu.csc316.dsa.list.List;
-import edu.ncsu.csc316.dsa.list.SinglyLinkedList;
+//import edu.ncsu.csc316.dsa.list.SinglyLinkedList;
 import edu.ncsu.csc316.dsa.list.positional.PositionalLinkedList;
 import edu.ncsu.csc316.dsa.list.positional.PositionalList;
 import edu.ncsu.csc316.dsa.map.Map;
-import edu.ncsu.csc316.dsa.map.SearchTableMap;
+//import edu.ncsu.csc316.dsa.map.SearchTableMap;
 import edu.ncsu.csc316.dsa.map.SkipListMap;
-import edu.ncsu.csc316.dsa.map.UnorderedArrayMap;
-import edu.ncsu.csc316.dsa.map.UnorderedLinkedMap;
+//import edu.ncsu.csc316.dsa.map.UnorderedArrayMap;
+//import edu.ncsu.csc316.dsa.map.UnorderedLinkedMap;
 import edu.ncsu.csc316.dsa.queue.ArrayBasedQueue;
 import edu.ncsu.csc316.dsa.queue.Queue;
-import edu.ncsu.csc316.dsa.sorter.BubbleSorter;
+//import edu.ncsu.csc316.dsa.sorter.BubbleSorter;
 import edu.ncsu.csc316.dsa.sorter.CountingSorter;
-import edu.ncsu.csc316.dsa.sorter.InsertionSorter;
+//import edu.ncsu.csc316.dsa.sorter.InsertionSorter;
 import edu.ncsu.csc316.dsa.sorter.MergeSorter;
-import edu.ncsu.csc316.dsa.sorter.QuickSorter;
-import edu.ncsu.csc316.dsa.sorter.RadixSorter;
-import edu.ncsu.csc316.dsa.sorter.SelectionSorter;
+//import edu.ncsu.csc316.dsa.sorter.QuickSorter;
+//import edu.ncsu.csc316.dsa.sorter.RadixSorter;
+//import edu.ncsu.csc316.dsa.sorter.SelectionSorter;
 import edu.ncsu.csc316.dsa.sorter.Sorter;
 import edu.ncsu.csc316.dsa.stack.LinkedStack;
 import edu.ncsu.csc316.dsa.stack.Stack;
@@ -115,32 +115,32 @@ public class DSAFactory {
 		return getArrayBasedQueue();
 	}
 
-	/**
-	 * Returns an unordered array-based map
-	 * 
-	 * @return an unordered array-based map
-	 */
-	private static <K, V> UnorderedArrayMap<K, V> getUnorderedArrayMap() {
-		return new UnorderedArrayMap<K, V>();
-	}
+//	/**
+//	 * Returns an unordered array-based map
+//	 * 
+//	 * @return an unordered array-based map
+//	 */
+//	private static <K, V> UnorderedArrayMap<K, V> getUnorderedArrayMap() {
+//		return new UnorderedArrayMap<K, V>();
+//	}
 
-	/**
-	 * Returns an unordered linked map
-	 * 
-	 * @return an unordered linked map
-	 */
-	private static <K, V> UnorderedLinkedMap<K, V> getUnorderedLinkedMap() {
-		return new UnorderedLinkedMap<K, V>();
-	}
+//	/**
+//	 * Returns an unordered linked map
+//	 * 
+//	 * @return an unordered linked map
+//	 */
+//	private static <K, V> UnorderedLinkedMap<K, V> getUnorderedLinkedMap() {
+//		return new UnorderedLinkedMap<K, V>();
+//	}
 
-	/**
-	 * Returns a search table
-	 * 
-	 * @return a search table
-	 */
-	private static <K extends Comparable<K>, V> SearchTableMap<K, V> getSearchTableMap() {
-		return new SearchTableMap<K, V>();
-	}
+//	/**
+//	 * Returns a search table
+//	 * 
+//	 * @return a search table
+//	 */
+//	private static <K extends Comparable<K>, V> SearchTableMap<K, V> getSearchTableMap() {
+//		return new SearchTableMap<K, V>();
+//	}
 
 	/**
 	 * Returns a skip list map
@@ -160,14 +160,14 @@ public class DSAFactory {
 		return new ArrayBasedList<E>();
 	}
 
-	/**
-	 * Returns a singly linked list with front pointer
-	 * 
-	 * @return a singly linked list with front pointer
-	 */
-	private static <E> SinglyLinkedList<E> getSinglyLinkedList() {
-		return new SinglyLinkedList<E>();
-	}
+//	/**
+//	 * Returns a singly linked list with front pointer
+//	 * 
+//	 * @return a singly linked list with front pointer
+//	 */
+//	private static <E> SinglyLinkedList<E> getSinglyLinkedList() {
+//		return new SinglyLinkedList<E>();
+//	}
 
 	/**
 	 * Returns a positional linked list with a front pointer
@@ -187,41 +187,41 @@ public class DSAFactory {
 		return new MergeSorter<E>();
 	}
 
-	/**
-	 * Returns a quicksorter
-	 * 
-	 * @return a quicksorter
-	 */
-	private static <E extends Comparable<E>> Sorter<E> getQuickSorter() {
-		return new QuickSorter<E>();
-	}
+//	/**
+//	 * Returns a quicksorter
+//	 * 
+//	 * @return a quicksorter
+//	 */
+//	private static <E extends Comparable<E>> Sorter<E> getQuickSorter() {
+//		return new QuickSorter<E>();
+//	}
 
-	/**
-	 * Returns an insertion sorter
-	 * 
-	 * @return an insertion sorter
-	 */
-	private static <E extends Comparable<E>> Sorter<E> getInsertionSorter() {
-		return new InsertionSorter<E>();
-	}
+//	/**
+//	 * Returns an insertion sorter
+//	 * 
+//	 * @return an insertion sorter
+//	 */
+//	private static <E extends Comparable<E>> Sorter<E> getInsertionSorter() {
+//		return new InsertionSorter<E>();
+//	}
 
-	/**
-	 * Returns a selection sorter
-	 * 
-	 * @return a selection sorter
-	 */
-	private static <E extends Comparable<E>> Sorter<E> getSelectionSorter() {
-		return new SelectionSorter<E>();
-	}
+//	/**
+//	 * Returns a selection sorter
+//	 * 
+//	 * @return a selection sorter
+//	 */
+//	private static <E extends Comparable<E>> Sorter<E> getSelectionSorter() {
+//		return new SelectionSorter<E>();
+//	}
 
-	/**
-	 * Returns a bubble sorter
-	 * 
-	 * @return a bubble sorter
-	 */
-	private static <E extends Comparable<E>> Sorter<E> getBubbleSorter() {
-		return new BubbleSorter<E>();
-	}
+//	/**
+//	 * Returns a bubble sorter
+//	 * 
+//	 * @return a bubble sorter
+//	 */
+//	private static <E extends Comparable<E>> Sorter<E> getBubbleSorter() {
+//		return new BubbleSorter<E>();
+//	}
 
 	/**
 	 * Returns a counting sorter
@@ -232,14 +232,14 @@ public class DSAFactory {
 		return new CountingSorter<E>();
 	}
 
-	/**
-	 * Returns a radix sorter
-	 * 
-	 * @return a radix sorter
-	 */
-	private static <E extends Identifiable> Sorter<E> getRadixSorter() {
-		return new RadixSorter<E>();
-	}
+//	/**
+//	 * Returns a radix sorter
+//	 * 
+//	 * @return a radix sorter
+//	 */
+//	private static <E extends Identifiable> Sorter<E> getRadixSorter() {
+//		return new RadixSorter<E>();
+//	}
 
 	/**
 	 * Returns a linked stack

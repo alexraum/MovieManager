@@ -7,16 +7,20 @@ import edu.ncsu.csc316.dsa.list.List;
 import edu.ncsu.csc316.movie.data.Movie;
 import edu.ncsu.csc316.movie.data.WatchRecord;
 
+/**
+ * Provides methods used by the UI class to provide a report
+ * to the user.
+ * 
+ * @author Alex Raum
+ */
 public class ReportManager {
-
-	// TODO: Questions: How do we access the methods of the classes contained in JAR files?
 	
-	/** */
+	/** A MovieManager object */
 	private MovieManager manager;
-	/** */
+	/** A String used to assist in proper formatting of output */
 	private static final String INDENT = "   ";
-	/** */
-	private WatchRecord record;
+	///** */
+	//private WatchRecord record;
 
 	/**
 	 * Creates a new ReportManager for generating reports for the MovieManager software
@@ -27,7 +31,6 @@ public class ReportManager {
 	 * @throws ParseException if the watch record file contains incorrectly formatted date information
 	 */
 	public ReportManager(String pathToMovieFile, String pathToWatchFile) throws FileNotFoundException, ParseException {
-		// TODO: complete this constructor
 		manager = new MovieManager(pathToMovieFile, pathToWatchFile);
 	}
 
@@ -39,7 +42,6 @@ public class ReportManager {
 	 * @return a report of the most frequently watched movies
 	 */
 	public String getTopMoviesReport(int numberOfMovies) {
-		// TODO: complete this method
 		List<Movie> movies = manager.getMostFrequentlyWatchedMovies(numberOfMovies);
 		String films = "";
 		for (Movie m : movies) {
@@ -54,9 +56,14 @@ public class ReportManager {
 	 * @param threshold the percentage threshold (as a whole number)
 	 * @return a report of movies below a specific watch percentage threshold
 	 */
-//	public String getMovieCompletionReport(int threshold) {
-//		// TODO: complete this method
-//	}
+	public String getMovieCompletionReport(int threshold) {
+		List<Movie> movies = manager.getMoviesByWatchDuration(threshold);
+		String films = "";
+		for (Movie m : movies) {
+			films += INDENT + m.getTitle() + "\n";
+		}
+		return films;
+	}
 
 	/**
 	 * Return a report of dates on which a specific movie was watched
@@ -65,7 +72,6 @@ public class ReportManager {
 	 * @return a report of dates on which a specific movie was watched
 	 */
 	public String getWatchDates(String title) {
-		// TODO: complete this method
 		List<WatchRecord> freqList = manager.getWatchFrequency(title);
 		String dates = "";
 		for (WatchRecord w : freqList) {
