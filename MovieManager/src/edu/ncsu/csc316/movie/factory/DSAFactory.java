@@ -41,10 +41,10 @@ public class DSAFactory {
 	 *            - the value type
 	 * @return a data structure that implements a map
 	 */
-	public static <K extends Comparable<K>, V> Map<K, V> getMap() {
-		// use a skip list as default map data structure
-		return getSkipListMap();
-	}
+//	public static <K extends Comparable<K>, V> Map<K, V> getMap() {
+//		// use a skip list as default map data structure
+//		return getSkipListMap();
+//	}
 
 	/**
 	 * Returns a data structure that implements an index-based list
@@ -65,9 +65,9 @@ public class DSAFactory {
 	 *            - the element type
 	 * @return a positional list
 	 */
-	public static <E> PositionalList<E> getPositionalList() {
-		return getPositionalLinkedList();
-	}
+//	public static <E> PositionalList<E> getPositionalList() {
+//		return getPositionalLinkedList();
+//	}
 
 	/**
 	 * Returns a comparison based sorter
@@ -88,10 +88,10 @@ public class DSAFactory {
 	 *            - the element type
 	 * @return a non-comparison based sorter
 	 */
-	public static <E extends Identifiable> Sorter<E> getNonComparisonSorter() {
-		// use counting sort as default non comparison-based sorter
-		return getCountingSorter();
-	}
+//	public static <E extends Identifiable> Sorter<E> getNonComparisonSorter() {
+//		// use counting sort as default non comparison-based sorter
+//		return getCountingSorter();
+//	}
 
 	/**
 	 * Returns a data structure that implements a stack
@@ -100,9 +100,9 @@ public class DSAFactory {
 	 *            - the element type
 	 * @return a stack
 	 */
-	public static <E> Stack<E> getStack() {
-		return getLinkedStack();
-	}
+//	public static <E> Stack<E> getStack() {
+//		return getLinkedStack();
+//	}
 
 	/**
 	 * Returns a data structure that implements a queue
@@ -111,9 +111,9 @@ public class DSAFactory {
 	 *            - the element type
 	 * @return a stack
 	 */
-	public static <E> Queue<E> getQueue() {
-		return getArrayBasedQueue();
-	}
+//	public static <E> Queue<E> getQueue() {
+//		return getArrayBasedQueue();
+//	}
 
 //	/**
 //	 * Returns an unordered array-based map
@@ -147,9 +147,9 @@ public class DSAFactory {
 	 * 
 	 * @return a skip list map
 	 */
-	private static <K extends Comparable<K>, V> SkipListMap<K, V> getSkipListMap() {
-		return new SkipListMap<K, V>();
-	}
+//	private static <K extends Comparable<K>, V> SkipListMap<K, V> getSkipListMap() {
+//		return new SkipListMap<K, V>();
+//	}
 
 	/**
 	 * Returns an array-based list
@@ -228,9 +228,9 @@ public class DSAFactory {
 	 * 
 	 * @return a counting sorter
 	 */
-	private static <E extends Identifiable> Sorter<E> getCountingSorter() {
-		return new CountingSorter<E>();
-	}
+//	private static <E extends Identifiable> Sorter<E> getCountingSorter() {
+//		return new CountingSorter<E>();
+//	}
 
 //	/**
 //	 * Returns a radix sorter
@@ -246,16 +246,16 @@ public class DSAFactory {
 	 * 
 	 * @return a linked stack
 	 */
-	private static <E> LinkedStack<E> getLinkedStack() {
-		return new LinkedStack<E>();
-	}
+//	private static <E> LinkedStack<E> getLinkedStack() {
+//		return new LinkedStack<E>();
+//	}
 
 	/**
 	 * Returns a linked queue
 	 * 
 	 * @return a linked queue
 	 */
-	private static <E> ArrayBasedQueue<E> getArrayBasedQueue() {
-		return new ArrayBasedQueue<E>();
-	}
+//	private static <E> ArrayBasedQueue<E> getArrayBasedQueue() {
+//		return new ArrayBasedQueue<E>();
+//	}
 }
