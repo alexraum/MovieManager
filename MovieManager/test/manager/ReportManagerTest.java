@@ -47,8 +47,8 @@ public class ReportManagerTest {
 	@Test
 	public void testGetTopMoviesReport() {
 		String report = manager.getTopMoviesReport(3);
-		assertEquals(report, "The 3 most frequently watched movies [\n" + INDENT + "Pete's Dragon\n" + INDENT + 
-				"Guardians of the Galaxy\n" + INDENT + "Hidden Figures\n]");
+		assertEquals(report, "The 3 most frequently watched movies [\n" + INDENT + "Pete's Dragon (2016)\n" + INDENT + 
+				"Guardians of the Galaxy (2014)\n" + INDENT + "Hidden Figures (2016)\n]");
 	}
 	
 	/**
@@ -57,8 +57,8 @@ public class ReportManagerTest {
 	@Test
 	public void testGetMovieCompletionReport() {
 		String report = manager.getMovieCompletionReport(90);
-		assertEquals(report, "The movies that have been watched less than 90% [\n" + INDENT + "The Martian\n" + INDENT + 
-				"The Great Wall\n" + INDENT + "Guardians of the Galaxy\n]");
+		assertEquals(report, "The movies that have been watched less than 90% [\n" + INDENT + "The Martian (2015)\n" + INDENT + 
+				"The Great Wall (2016)\n" + INDENT + "Guardians of the Galaxy (2014)\n]");
 	}
 	
 	/**
@@ -67,7 +67,7 @@ public class ReportManagerTest {
 	@Test
 	public void testGetWatchDates() {
 		String report = manager.getWatchDates("Pete's Dragon");
-		assertEquals(report, "The movie Pete's Dragon was streamed on [\n" + INDENT + "2020-03-04\n" + INDENT + 
+		assertEquals(report, "The movie \"Pete's Dragon\" was streamed on [\n" + INDENT + "2020-03-04\n" + INDENT + 
 				"2020-02-05\n" + INDENT + "2020-02-04\n" + INDENT + "2019-05-01\n]");
 	}
 	

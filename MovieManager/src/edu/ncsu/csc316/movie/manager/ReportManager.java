@@ -43,12 +43,12 @@ public class ReportManager {
 	 */
 	public String getTopMoviesReport(int numberOfMovies) {
 		if (numberOfMovies <= 0) {
-			return "Please enter a number > 0: ";
+			return "Please enter a number > 0.";
 		}
 		List<Movie> movies = manager.getMostFrequentlyWatchedMovies(numberOfMovies);
 		String report = "The " + numberOfMovies + " most frequently watched movies [\n";
 		for (Movie m : movies) {
-			report += INDENT + m.getTitle() + "\n";
+			report += INDENT + m.getTitle() + " (" + m.getYear() + ")\n";
 		}
 		report += "]";
 		return report;
@@ -70,7 +70,7 @@ public class ReportManager {
 		}
 		String report = "The movies that have been watched less than " + threshold + "% [\n";
 		for (Movie m : movies) {
-			report += INDENT + m.getTitle() + "\n";
+			report += INDENT + m.getTitle() + " (" + m.getYear() + ")\n";
 		}
 		report += "]";
 		return report;
@@ -83,11 +83,14 @@ public class ReportManager {
 	 * @return a report of dates on which a specific movie was watched
 	 */
 	public String getWatchDates(String title) {
-		List<WatchRecord> freqList = manager.getWatchHistory(title);
 		if (title.length() == 0) {
 			return "Please enter a valid movie title.";
 		}
-		String report = "The movie " + title + " was streamed on [\n";
+		List<WatchRecord> freqList = manager.getWatchHistory(title);
+		if (freqList.size() == 0) {
+			return "No watch history for \"" + title + "\".";
+		}
+		String report = "The movie \"" + title + "\" was streamed on [\n";
 		for (WatchRecord w : freqList) {
 			report += INDENT + w.getDate().toString() + "\n";
 		}
