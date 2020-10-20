@@ -1,28 +1,28 @@
 package edu.ncsu.csc316.movie.factory;
 
-import edu.ncsu.csc316.dsa.data.Identifiable;
+//import edu.ncsu.csc316.dsa.data.Identifiable;
 import edu.ncsu.csc316.dsa.list.ArrayBasedList;
 import edu.ncsu.csc316.dsa.list.List;
 //import edu.ncsu.csc316.dsa.list.SinglyLinkedList;
-import edu.ncsu.csc316.dsa.list.positional.PositionalLinkedList;
-import edu.ncsu.csc316.dsa.list.positional.PositionalList;
-import edu.ncsu.csc316.dsa.map.Map;
+//import edu.ncsu.csc316.dsa.list.positional.PositionalLinkedList;
+//import edu.ncsu.csc316.dsa.list.positional.PositionalList;
+//import edu.ncsu.csc316.dsa.map.Map;
 //import edu.ncsu.csc316.dsa.map.SearchTableMap;
-import edu.ncsu.csc316.dsa.map.SkipListMap;
+//import edu.ncsu.csc316.dsa.map.SkipListMap;
 //import edu.ncsu.csc316.dsa.map.UnorderedArrayMap;
 //import edu.ncsu.csc316.dsa.map.UnorderedLinkedMap;
-import edu.ncsu.csc316.dsa.queue.ArrayBasedQueue;
-import edu.ncsu.csc316.dsa.queue.Queue;
+//import edu.ncsu.csc316.dsa.queue.ArrayBasedQueue;
+//import edu.ncsu.csc316.dsa.queue.Queue;
 //import edu.ncsu.csc316.dsa.sorter.BubbleSorter;
-import edu.ncsu.csc316.dsa.sorter.CountingSorter;
+//import edu.ncsu.csc316.dsa.sorter.CountingSorter;
 //import edu.ncsu.csc316.dsa.sorter.InsertionSorter;
 import edu.ncsu.csc316.dsa.sorter.MergeSorter;
 //import edu.ncsu.csc316.dsa.sorter.QuickSorter;
 //import edu.ncsu.csc316.dsa.sorter.RadixSorter;
 //import edu.ncsu.csc316.dsa.sorter.SelectionSorter;
 import edu.ncsu.csc316.dsa.sorter.Sorter;
-import edu.ncsu.csc316.dsa.stack.LinkedStack;
-import edu.ncsu.csc316.dsa.stack.Stack;
+//import edu.ncsu.csc316.dsa.stack.LinkedStack;
+//import edu.ncsu.csc316.dsa.stack.Stack;
 
 /**
  * Factory for creating new data structure and algorithm instances
@@ -174,9 +174,9 @@ public class DSAFactory {
 	 * 
 	 * @return a positional linked list with a front pointer
 	 */
-	private static <E> PositionalLinkedList<E> getPositionalLinkedList() {
-		return new PositionalLinkedList<E>();
-	}
+//	private static <E> PositionalLinkedList<E> getPositionalLinkedList() {
+//		return new PositionalLinkedList<E>();
+//	}
 
 	/**
 	 * Returns a mergesorter

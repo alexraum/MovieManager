@@ -8,21 +8,24 @@ import org.junit.Test;
 import edu.ncsu.csc316.movie.manager.ReportManager;
 
 /**
+ * ReportManagerTest checks the behavior of the methods in the
+ * ReportManager class.
  * 
  * @author Alex Raum
  */
 public class ReportManagerTest {
 
-	/** */
+	/** A ReportManager object */
 	private ReportManager manager;
-	/** */
-	private String MOVIE_PATH = "input\\movieRecord_sample.csv";
-	/** */
-	private String WATCH_PATH = "input\\watchRecord_sample.csv";
-	/** */
+	/** The Movie path */
+	private String MOVIE_PATH = "input/movieRecord_sample.csv";
+	/** The WatchRecord path */
+	private String WATCH_PATH = "input/watchRecord_sample.csv";
+	/** String used for formatting */
 	private static final String INDENT = "   ";
 	
 	/**
+	 * Initializes the fields
 	 * 
 	 * @throws Exception
 	 */
@@ -32,7 +35,7 @@ public class ReportManagerTest {
 	}
 
 	/**
-	 * 
+	 * Tests the functionality of the getTopMoviesReport method
 	 */
 	@Test
 	public void testGetTopMoviesReport() {
@@ -41,7 +44,7 @@ public class ReportManagerTest {
 	}
 	
 	/**
-	 * 
+	 * Tests the functionality of the getMovieCompletionReport method
 	 */
 	@Test
 	public void testGetMovieCompletionReport() {
@@ -50,7 +53,7 @@ public class ReportManagerTest {
 	}
 	
 	/**
-	 * 
+	 * Tests the functionality of the getWatchDates method
 	 */
 	@Test
 	public void testGetWatchDates() {
