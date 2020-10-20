@@ -144,7 +144,8 @@ public class MovieManager {
 			for (WatchRecord w : historyFile) {
 				// if the current movies id matches the id of the current entry in the watch record
 				if (w.getMovieId().equals(m.getId())) {
-					// compute the ratio of the minutes watched field of the current entry in the watch record to the current movies minutes watched field
+					// compute the ratio of the minutes watched field of the current entry in 					
+					// the watch record to the current movies minutes watched field
 					double value = (((double)w.getWatchTime()) / ((double)m.getRuntime())) * 100;
 					int percentComp = (int)value; 
 					// if percentComp is above threshold, set ratio to zero and go to next WatchHistory
@@ -197,7 +198,7 @@ public class MovieManager {
 		private Movie movie;
 		
 		/**
-		 * The FrequentMovie construtor
+		 * The FrequentMovie constructor
 		 * 
 		 * @param frequency the frequency a movie was watched
 		 * @param movie the movie that was watched
