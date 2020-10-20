@@ -376,7 +376,7 @@ public class MovieManager {
 	 * 
 	 * @author Alex Raum
 	 */
-	private class WatchHistory implements Comparable<WatchHistory> {
+	public static class WatchHistory implements Comparable<WatchHistory> {
 		
 		/** A WatchRecord object */
 		private WatchRecord record;
