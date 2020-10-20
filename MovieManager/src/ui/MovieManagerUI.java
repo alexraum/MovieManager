@@ -91,12 +91,12 @@ public class MovieManagerUI {
 		int numFilms = in2.nextInt();
 		
 		// if numFilms <= 0, user is prompted to enter a number > 0
-		if (numFilms <= 0) {
-			while (numFilms <= 0) {
-				System.out.println("Please enter a number > 0: ");
-				numFilms = in2.nextInt();
-			}
-		}
+//		if (numFilms <= 0) {
+//			while (numFilms <= 0) {
+//				System.out.println("Please enter a number > 0: ");
+//				numFilms = in2.nextInt();
+//			}
+//		}
 		
 		// if user enters a number greater than the number of unique movies in the watch
 		// history file, the report will contain all of the unique movies contained in 
@@ -105,9 +105,7 @@ public class MovieManagerUI {
 		// if the input watch history file does not contain any movies, then indicate
 		// "no movies have been streamed"
 		String report = reportManager.getTopMoviesReport(numFilms);
-		System.out.println("The " + numFilms + " most frequently watched movies [");
-		System.out.print(report);
-		System.out.println("]");
+		System.out.println(report);
 		
 		// close the scanner
 		in2.close();
@@ -125,27 +123,22 @@ public class MovieManagerUI {
 		System.out.println("Enter the maximum percent completion of films listed in report: ");
 		double num = in3.nextDouble();
 		
-		// if the user enters a percentage threshold <= 0 or > 100, prompt user to "Please
-		// enter a percentage completion between 1 and 100."
-		if (num <= 0 || num > 100) {
-			while (num <= 0 || num > 100) {
-				System.out.println("Please enter a percentage completion between 1 and 100.");
-				num = in3.nextDouble();
-			}
-		}		
 		// cast to an integer
 		int percentComp = (int)num;
 		
+		// if the user enters a percentage threshold <= 0 or > 100, prompt user to "Please
+		// enter a percentage completion between 1 and 100."
+//		if (num <= 0 || num > 100) {
+//			while (num <= 0 || num > 100) {
+//				System.out.println("Please enter a percentage completion between 1 and 100.");
+//				num = in3.nextDouble();
+//			}
+//		}		
+	
 		// if no movies have a percent completion below the given threshold, indicate "No movies
 		// are less than percentComp percent completed."
 		String report = reportManager.getMovieCompletionReport(percentComp);
-		if (report.equals("")) {
-			System.out.println("No movies are less than " + percentComp + "% completed.");
-		} else {
-			System.out.println("The movies that have been watched less than " + percentComp + "% [");
-			System.out.print(report);
-			System.out.println("]");	
-		}	
+		System.out.print(report);
 		
 		// close the scanner
 		in3.close();
@@ -164,9 +157,6 @@ public class MovieManagerUI {
 		
 		// If the user enters an invalid title (no text),
 		// prompt the user to “Please enter a valid movie title”.
-		if (title.length() == 0) {
-			System.out.println("Please enter a valid movie title.");
-		}
 				
 		// If the movie title does not exist in the movie record
 		// catalog, indicate: No watch history for “(title)”.
@@ -174,9 +164,7 @@ public class MovieManagerUI {
 		// If the movie has never been streamed before, indicate:
 		// No watch history for “(title)”.
 		String report = reportManager.getWatchDates(title);
-		System.out.println("The movie " + title + " was streamed on [");
 		System.out.print(report);
-		System.out.println("]");
 		
 		// close the scanner
 		in4.close();

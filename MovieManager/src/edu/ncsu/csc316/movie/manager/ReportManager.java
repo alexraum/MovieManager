@@ -42,12 +42,16 @@ public class ReportManager {
 	 * @return a report of the most frequently watched movies
 	 */
 	public String getTopMoviesReport(int numberOfMovies) {
-		List<Movie> movies = manager.getMostFrequentlyWatchedMovies(numberOfMovies);
-		String films = "";
-		for (Movie m : movies) {
-			films += INDENT + m.getTitle() + "\n";
+		if (numberOfMovies <= 0) {
+			return "Please enter a number > 0: ";
 		}
-		return films;
+		List<Movie> movies = manager.getMostFrequentlyWatchedMovies(numberOfMovies);
+		String report = "The " + numberOfMovies + " most frequently watched movies [\n";
+		for (Movie m : movies) {
+			report += INDENT + m.getTitle() + "\n";
+		}
+		report += "]";
+		return report;
 	}
 
 	/**
@@ -57,12 +61,19 @@ public class ReportManager {
 	 * @return a report of movies below a specific watch percentage threshold
 	 */
 	public String getMovieCompletionReport(int threshold) {
+		if (threshold <= 0 || threshold > 100) {
+				return "Please enter a percentage completion between 1 and 100.";
+		}	
 		List<Movie> movies = manager.getMoviesByWatchDuration(threshold);
-		String films = "";
-		for (Movie m : movies) {
-			films += INDENT + m.getTitle() + "\n";
+		if (movies.size() == 0) {
+			return "No movies are less than " + threshold + "% completed.";
 		}
-		return films;
+		String report = "The movies that have been watched less than " + threshold + "% [\n";
+		for (Movie m : movies) {
+			report += INDENT + m.getTitle() + "\n";
+		}
+		report += "]";
+		return report;
 	}
 
 	/**
@@ -73,10 +84,14 @@ public class ReportManager {
 	 */
 	public String getWatchDates(String title) {
 		List<WatchRecord> freqList = manager.getWatchHistory(title);
-		String dates = "";
-		for (WatchRecord w : freqList) {
-			dates += INDENT + w.getDate().toString() + "\n";
+		if (title.length() == 0) {
+			return "Please enter a valid movie title.";
 		}
-		return dates;
+		String report = "The movie " + title + " was streamed on [\n";
+		for (WatchRecord w : freqList) {
+			report += INDENT + w.getDate().toString() + "\n";
+		}
+		report += "]";
+		return report;
 	}
 }
