@@ -18,9 +18,9 @@ public class ReportManagerTest {
 	/** A ReportManager object */
 	private ReportManager manager;
 	/** The Movie path */
-	private String MOVIE_PATH = "input/movieRecord_sample.csv";
+	private String MOVIE = "input/movieRecord_sample.csv";
 	/** The WatchRecord path */
-	private String WATCH_PATH = "input/watchRecord_sample.csv";
+	private String WATCH = "input/watchRecord_sample.csv";
 	/** String used for formatting */
 	private static final String INDENT = "   ";
 	
@@ -31,7 +31,7 @@ public class ReportManagerTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		manager = new ReportManager(MOVIE_PATH, WATCH_PATH);
+		manager = new ReportManager(MOVIE, WATCH);
 	}
 
 	/**

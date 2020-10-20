@@ -154,11 +154,15 @@ public class MovieManager {
 						break;
 					}
 					// if the ratio is below threshold parameter
-					if (percentComp < threshold) {
+//					if (percentComp < threshold) {
+//						// redefine ratio variable by computing the maximum of this ratio and the one before it
+//						if (percentComp > ratio) {
+//							ratio = percentComp;
+//						}
+//					}
+					if (percentComp < threshold && percentComp > ratio) {
 						// redefine ratio variable by computing the maximum of this ratio and the one before it
-						if (percentComp > ratio) {
-							ratio = percentComp;
-						}
+						ratio = percentComp;
 					}
 				}
 			}
