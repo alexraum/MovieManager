@@ -149,7 +149,8 @@ public class MovieManager {
 					double value = (((double)w.getWatchTime()) / ((double)m.getRuntime())) * 100;
 					int percentComp = (int)value; 
 					// if percentComp is above threshold, set ratio to zero and go to next WatchHistory
-					if (percentComp > threshold) {
+					// TODO: remember this change: if (percentComp > threshold) {
+					if (percentComp >= threshold) {
 						ratio = 0;
 						break;
 					}
@@ -175,6 +176,8 @@ public class MovieManager {
 			// if the percent completion in the percents list in non zero, add it to the array
 			movies[i] = new UnfinishedMovie(percents.get(i), movieFile.get(i));
 		}
+		//TODO: double check list to make sure i'm processing the last element in the list
+		
 		// sort the array
 		Sorter<UnfinishedMovie> sorter = DSAFactory.getComparisonSorter();
 		sorter.sort(movies);
