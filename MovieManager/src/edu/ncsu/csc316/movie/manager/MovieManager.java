@@ -258,7 +258,7 @@ public class MovieManager {
 		 */
 		public int compareTo(FrequentMovie f) {
 			int freqCompare = frequency.compareTo(f.getFrequency());
-			// May need to change from compareToIgnoreCase to compareTo
+			// May need to change from compareTo to compareToIgnoreCase
 			int titleCompare = movie.getTitle().compareTo(f.getMovie().getTitle());
 			int idCompare = movie.getId().compareTo(f.getMovie().getId());
 			
@@ -349,9 +349,9 @@ public class MovieManager {
 		 */
 		public int compareTo(UnfinishedMovie u) {
 			int percentCompare = percentComp.compareTo(u.getPercentComp());
-			// May need to change from compareToIgnoreCase to compareTo
-			int titleCompare = movie.getTitle().compareToIgnoreCase(u.getMovie().getTitle());
-			int idCompare = movie.getId().compareToIgnoreCase(u.getMovie().getId());
+			// May need to change from compareTo to compareToIgnoreCase
+			int titleCompare = movie.getTitle().compareTo(u.getMovie().getTitle());
+			int idCompare = movie.getId().compareTo(u.getMovie().getId());
 			
 			if (percentCompare < 0) {
 				return 1;
