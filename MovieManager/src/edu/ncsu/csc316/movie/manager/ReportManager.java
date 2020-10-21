@@ -2,6 +2,7 @@ package edu.ncsu.csc316.movie.manager;
 
 import java.io.FileNotFoundException;
 import java.text.ParseException;
+import java.time.format.DateTimeFormatter;
 
 import edu.ncsu.csc316.dsa.list.List;
 import edu.ncsu.csc316.movie.data.Movie;
@@ -95,7 +96,7 @@ public class ReportManager {
 		}
 		String report = "The movie \"" + title + "\" was streamed on [\n";
 		for (WatchRecord w : freqList) {
-			report += INDENT + w.getDate().toString() + "\n";
+			report += INDENT + w.getDate().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")) + "\n";
 		}
 		report += "]";
 		return report;
