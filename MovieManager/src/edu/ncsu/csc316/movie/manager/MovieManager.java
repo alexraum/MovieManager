@@ -259,8 +259,8 @@ public class MovieManager {
 		public int compareTo(FrequentMovie f) {
 			int freqCompare = frequency.compareTo(f.getFrequency());
 			// May need to change from compareToIgnoreCase to compareTo
-			int titleCompare = movie.getTitle().compareToIgnoreCase(f.getMovie().getTitle());
-			int idCompare = movie.getId().compareToIgnoreCase(f.getMovie().getId());
+			int titleCompare = movie.getTitle().compareTo(f.getMovie().getTitle());
+			int idCompare = movie.getId().compareTo(f.getMovie().getId());
 			
 			if (freqCompare < 0) {
 				return 1;

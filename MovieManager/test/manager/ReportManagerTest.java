@@ -67,8 +67,8 @@ public class ReportManagerTest {
 	@Test
 	public void testGetWatchDates() {
 		String report = manager.getWatchDates("Pete's Dragon");
-		assertEquals(report, "The movie \"Pete's Dragon\" was streamed on [\n" + INDENT + "2020-03-04\n" + INDENT + 
-				"2020-02-05\n" + INDENT + "2020-02-04\n" + INDENT + "2019-05-01\n]");
+		assertEquals(report, "The movie \"Pete's Dragon\" was streamed on [\n" + INDENT + "03/04/2020\n" + INDENT + 
+				"02/05/2020\n" + INDENT + "02/04/2020\n" + INDENT + "05/01/2019\n]");
 	}
 	
 	/**
