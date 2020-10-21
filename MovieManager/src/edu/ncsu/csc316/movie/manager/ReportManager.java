@@ -46,6 +46,9 @@ public class ReportManager {
 			return "Please enter a number > 0.";
 		}
 		List<Movie> movies = manager.getMostFrequentlyWatchedMovies(numberOfMovies);
+		if (movies.size() == 0) {
+			return "No movies have been streamed.";
+		}
 		String report = "The " + numberOfMovies + " most frequently watched movies [\n";
 		for (Movie m : movies) {
 			report += INDENT + m.getTitle() + " (" + m.getYear() + ")\n";
