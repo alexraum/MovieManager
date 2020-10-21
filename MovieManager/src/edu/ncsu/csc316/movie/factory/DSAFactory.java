@@ -1,9 +1,9 @@
 package edu.ncsu.csc316.movie.factory;
 
 //import edu.ncsu.csc316.dsa.data.Identifiable;
-//import edu.ncsu.csc316.dsa.list.ArrayBasedList;
+import edu.ncsu.csc316.dsa.list.ArrayBasedList;
 import edu.ncsu.csc316.dsa.list.List;
-import edu.ncsu.csc316.dsa.list.SinglyLinkedList;
+//import edu.ncsu.csc316.dsa.list.SinglyLinkedList;
 //import edu.ncsu.csc316.dsa.list.positional.PositionalLinkedList;
 //import edu.ncsu.csc316.dsa.list.positional.PositionalList;
 //import edu.ncsu.csc316.dsa.map.Map;
@@ -55,7 +55,7 @@ public class DSAFactory {
 	 */
 	public static <E> List<E> getIndexedList() {
 		// use singly linked list as default list data structure
-		return getSinglyLinkedList();
+		return getArrayBasedList();
 	}
 
 	/**
@@ -151,23 +151,23 @@ public class DSAFactory {
 //		return new SkipListMap<K, V>();
 //	}
 
-//	/**
-//	 * Returns an array-based list
-//	 * 
-//	 * @return an array-based list
-//	 */
-//	private static <E> ArrayBasedList<E> getArrayBasedList() {
-//		return new ArrayBasedList<E>();
-//	}
-
 	/**
-	 * Returns a singly linked list with front pointer
+	 * Returns an array-based list
 	 * 
-	 * @return a singly linked list with front pointer
+	 * @return an array-based list
 	 */
-	private static <E> SinglyLinkedList<E> getSinglyLinkedList() {
-		return new SinglyLinkedList<E>();
+	private static <E> ArrayBasedList<E> getArrayBasedList() {
+		return new ArrayBasedList<E>();
 	}
+
+//	/**
+//	 * Returns a singly linked list with front pointer
+//	 * 
+//	 * @return a singly linked list with front pointer
+//	 */
+//	private static <E> SinglyLinkedList<E> getSinglyLinkedList() {
+//		return new SinglyLinkedList<E>();
+//	}
 
 	/**
 	 * Returns a positional linked list with a front pointer
