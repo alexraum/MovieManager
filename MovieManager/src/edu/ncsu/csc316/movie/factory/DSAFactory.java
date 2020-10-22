@@ -16,8 +16,8 @@ import edu.ncsu.csc316.dsa.list.List;
 //import edu.ncsu.csc316.dsa.sorter.BubbleSorter;
 //import edu.ncsu.csc316.dsa.sorter.CountingSorter;
 //import edu.ncsu.csc316.dsa.sorter.InsertionSorter;
-//import edu.ncsu.csc316.dsa.sorter.MergeSorter;
-import edu.ncsu.csc316.dsa.sorter.QuickSorter;
+import edu.ncsu.csc316.dsa.sorter.MergeSorter;
+//import edu.ncsu.csc316.dsa.sorter.QuickSorter;
 //import edu.ncsu.csc316.dsa.sorter.RadixSorter;
 //import edu.ncsu.csc316.dsa.sorter.SelectionSorter;
 import edu.ncsu.csc316.dsa.sorter.Sorter;
@@ -78,7 +78,7 @@ public class DSAFactory {
 	 */
 	public static <E extends Comparable<E>> Sorter<E> getComparisonSorter() {
 		// use merge sort as default comparison-based sorter
-		return getQuickSorter();
+		return getMergeSorter();
 	}
 
 	/**
@@ -178,23 +178,23 @@ public class DSAFactory {
 //		return new PositionalLinkedList<E>();
 //	}
 
-//	/**
-//	 * Returns a mergesorter
-//	 * 
-//	 * @return a mergesorter
-//	 */
-//	private static <E extends Comparable<E>> Sorter<E> getMergeSorter() {
-//		return new MergeSorter<E>();
-//	}
-
 	/**
-	 * Returns a quicksorter
+	 * Returns a mergesorter
 	 * 
-	 * @return a quicksorter
+	 * @return a mergesorter
 	 */
-	private static <E extends Comparable<E>> Sorter<E> getQuickSorter() {
-		return new QuickSorter<E>();
+	private static <E extends Comparable<E>> Sorter<E> getMergeSorter() {
+		return new MergeSorter<E>();
 	}
+
+//	/**
+//	 * Returns a quicksorter
+//	 * 
+//	 * @return a quicksorter
+//	 */
+//	private static <E extends Comparable<E>> Sorter<E> getQuickSorter() {
+//		return new QuickSorter<E>();
+//	}
 
 //	/**
 //	 * Returns an insertion sorter
