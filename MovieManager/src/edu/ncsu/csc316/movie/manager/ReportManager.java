@@ -42,19 +42,19 @@ public class ReportManager {
 	 * @param numberOfMovies the number of movies to include in the report
 	 * @return a report of the most frequently watched movies
 	 */
-	public String getTopMoviesReport(int numberOfMovies) {
+	public StringBuilder getTopMoviesReport(int numberOfMovies) {
 		if (numberOfMovies <= 0) {
-			return "Please enter a number > 0.";
+			return new StringBuilder("Please enter a number > 0.");
 		}
 		List<Movie> movies = manager.getMostFrequentlyWatchedMovies(numberOfMovies);
 		if (movies.size() == 0) {
-			return "No movies have been streamed.";
+			return new StringBuilder("No movies have been streamed.");
 		}
-		String report = "The " + numberOfMovies + " most frequently watched movies [\n";
+		StringBuilder report = new StringBuilder("The " + numberOfMovies + " most frequently watched movies [\n");
 		for (Movie m : movies) {
-			report += INDENT + m.getTitle() + " (" + m.getYear() + ")\n";
+			report.append(INDENT + m.getTitle() + " (" + m.getYear() + ")\n");
 		}
-		report += "]";
+		report.append("]");
 		return report;
 	}
 
@@ -64,19 +64,19 @@ public class ReportManager {
 	 * @param threshold the percentage threshold (as a whole number)
 	 * @return a report of movies below a specific watch percentage threshold
 	 */
-	public String getMovieCompletionReport(int threshold) {
+	public StringBuilder getMovieCompletionReport(int threshold) {
 		if (threshold <= 0 || threshold > 100) {
-				return "Please enter a percentage completion between 1 and 100.";
+				return new StringBuilder("Please enter a percentage completion between 1 and 100.");
 		}	
 		List<Movie> movies = manager.getMoviesByWatchDuration(threshold);
 		if (movies.size() == 0) {
-			return "No movies are less than " + threshold + "% completed.";
+			return new StringBuilder("No movies are less than " + threshold + "% completed.");
 		}
-		String report = "The movies that have been watched less than " + threshold + "% [\n";
+		StringBuilder report = new StringBuilder("The movies that have been watched less than " + threshold + "% [\n");
 		for (Movie m : movies) {
-			report += INDENT + m.getTitle() + " (" + m.getYear() + ")\n";
+			report.append(INDENT + m.getTitle() + " (" + m.getYear() + ")\n");
 		}
-		report += "]";
+		report.append("]");
 		return report;
 	}
 
@@ -86,19 +86,19 @@ public class ReportManager {
 	 * @param title the title of the movie for which to retrieve watch dates
 	 * @return a report of dates on which a specific movie was watched
 	 */
-	public String getWatchDates(String title) {
+	public StringBuilder getWatchDates(String title) {
 		if (title.length() == 0) {
-			return "Please enter a valid movie title.";
+			return new StringBuilder("Please enter a valid movie title.");
 		}
 		List<WatchRecord> freqList = manager.getWatchHistory(title);
 		if (freqList.size() == 0) {
-			return "No watch history for \"" + title + "\".";
+			return new StringBuilder("No watch history for \"" + title + "\".");
 		}
-		String report = "The movie \"" + title + "\" was streamed on [\n";
+		StringBuilder report = new StringBuilder("The movie \"" + title + "\" was streamed on [\n");
 		for (WatchRecord w : freqList) {
-			report += INDENT + w.getDate().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")) + "\n";
+			report.append(INDENT + w.getDate().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")) + "\n");
 		}
-		report += "]";
+		report.append("]");
 		return report;
 	}
 }
