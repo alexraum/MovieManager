@@ -104,7 +104,7 @@ public class MovieManagerUI {
 		
 		// if the input watch history file does not contain any movies, then indicate
 		// "no movies have been streamed"
-		StringBuilder report = reportManager.getTopMoviesReport(numFilms);
+		String report = reportManager.getTopMoviesReport(numFilms);
 		System.out.println(report);
 		
 		// close the scanner
@@ -137,7 +137,7 @@ public class MovieManagerUI {
 	
 		// if no movies have a percent completion below the given threshold, indicate "No movies
 		// are less than percentComp percent completed."
-		StringBuilder report = reportManager.getMovieCompletionReport(percentComp);
+		String report = reportManager.getMovieCompletionReport(percentComp);
 		System.out.print(report);
 		
 		// close the scanner
@@ -163,7 +163,7 @@ public class MovieManagerUI {
 		
 		// If the movie has never been streamed before, indicate:
 		// No watch history for “(title)”.
-		StringBuilder report = reportManager.getWatchDates(title);
+		String report = reportManager.getWatchDates(title);
 		System.out.print(report);
 		
 		// close the scanner
