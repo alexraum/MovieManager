@@ -50,12 +50,12 @@ public class ReportManager {
 		if (movies.size() == 0) {
 			return "No movies have been streamed.";
 		}
-		String report = "The " + numberOfMovies + " most frequently watched movies [\n";
+		StringBuilder report = new StringBuilder("The " + numberOfMovies + " most frequently watched movies [\n");
 		for (Movie m : movies) {
-			report += INDENT + m.getTitle() + " (" + m.getYear() + ")\n";
+			report.append(INDENT + m.getTitle() + " (" + m.getYear() + ")\n");
 		}
-		report += "]";
-		return report;
+		report.append("]");
+		return report.toString();
 	}
 
 	/**
@@ -72,12 +72,12 @@ public class ReportManager {
 		if (movies.size() == 0) {
 			return "No movies are less than " + threshold + "% completed.";
 		}
-		String report = "The movies that have been watched less than " + threshold + "% [\n";
+		StringBuilder report = new StringBuilder("The movies that have been watched less than " + threshold + "% [\n");
 		for (Movie m : movies) {
-			report += INDENT + m.getTitle() + " (" + m.getYear() + ")\n";
+			report.append(INDENT + m.getTitle() + " (" + m.getYear() + ")\n");
 		}
-		report += "]";
-		return report;
+		report.append("]");
+		return report.toString();
 	}
 
 	/**
@@ -94,11 +94,11 @@ public class ReportManager {
 		if (freqList.size() == 0) {
 			return "No watch history for \"" + title + "\".";
 		}
-		String report = "The movie \"" + title + "\" was streamed on [\n";
+		StringBuilder report = new StringBuilder("The movie \"" + title + "\" was streamed on [\n");
 		for (WatchRecord w : freqList) {
-			report += INDENT + w.getDate().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")) + "\n";
+			report.append(INDENT + w.getDate().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")) + "\n");
 		}
-		report += "]";
-		return report;
+		report.append("]");
+		return report.toString();
 	}
 }
