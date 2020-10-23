@@ -250,6 +250,7 @@ public class MovieManager {
 		 * Defines a relative ordering between two FrequentMovie objects
 		 * 
 		 * @param f object to compare this object to
+		 * @return an int representing ordering between objects
 		 */
 		public int compareTo(FrequentMovie f) {
 			int freqCompare = frequency.compareTo(f.getFrequency());
@@ -341,6 +342,7 @@ public class MovieManager {
 		 * Defines a relative ordering between two UnfinishedMovie objects
 		 * 
 		 * @param u object to compare this object to
+		 * @return an int representing ordering between objects
 		 */
 		public int compareTo(UnfinishedMovie u) {
 			int percentCompare = percentComp.compareTo(u.getPercentComp());
@@ -410,6 +412,8 @@ public class MovieManager {
 		 * Defines a relative ordering between two WatchHistory objects
 		 * 
 		 * @param w object to compare this object to
+		 * @return an int representing ordering between objects
+		 * 
 		 */
 		public int compareTo(WatchHistory w) {
 			int dateCompare = record.getDate().compareTo(w.getRecord().getDate()); 
